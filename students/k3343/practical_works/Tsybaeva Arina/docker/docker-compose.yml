@@ -4,7 +4,7 @@ services:
         db:
                 image: postgres
                 ports:
-                        - "5436:5432"
+                        - "5432:5432"
                 environment:
                         - POSTGRES_USER=postgres
                         - POSTGRES_PASSWORD=123456
@@ -20,7 +20,7 @@ services:
                 volumes:
                         - ./eco_taxi:/eco_taxi
                 ports:
-                        - "8000:8000"
+                        - "8005:8005"
                 depends_on:
                         - db
         frontend:
@@ -28,7 +28,7 @@ services:
                 build:
                         context: ./webtaxi
                         dockerfile: Dockerfile
-                command: npm run dev;
+
                 volumes:
                         - ./webtaxi:/webtaxi
                         - /webtaxi/node_modules

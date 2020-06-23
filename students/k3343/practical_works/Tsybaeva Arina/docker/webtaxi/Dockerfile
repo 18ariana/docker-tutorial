@@ -3,7 +3,7 @@ FROM node:12
 WORKDIR /webtaxi
 
 COPY package*.json ./
-CMD npm install
-CMD npm start
+RUN npm install --silent
+CMD ["npm", "start"]
 
 COPY . .
